@@ -349,6 +349,14 @@ video {
   color: #000;
   text-shadow: none;
 }
+
+/* Cute Japanese-friendly headings */
+h1, h2, h3, .heading, .box .title, .section-title {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
 </style>
 <style>
 @charset "utf-8";
@@ -451,6 +459,9 @@ video {
     width: 100%;
     height: 100vh;/*スライダー全体の縦幅を画面の高さいっぱい（100vh）にする*/
 }
+/* Prefer dynamic viewport units on mobile for full-bleed hero */
+#slider{ height: 100dvh; }
+
 
 /*===========================================================*/
 /*機能編  9-6-3 リンクをクリックすると、背景が暗くなり動画や画像やテキストを表示*/
@@ -611,6 +622,24 @@ video {
     background-size: cover;
 }
 
+@media screen and (max-width:768px) {
+	#box1{
+    background:url("./img/slice_sp1.png") no-repeat center;
+    background-size: cover;
+	}
+	#box2{
+    background:url("./img/slice_sp2.png") no-repeat center;
+    background-size: cover;
+	}
+	#box3{
+    background:url("./img/slice_sp3.png") no-repeat center;
+    background-size: cover;
+	}
+	#box4{
+    background:url("./img/slice_sp4.png") no-repeat center;
+    background-size: cover;
+	}
+}
 
 /*========= ページネーションCSS ===============*/
 
@@ -668,9 +697,15 @@ video {
 }
 
 @media screen and (max-width:768px) { 
-	.pagination a .hover-text{
-		display: none;
-	}	
+	.pagination{ display:none; }
+}
+
+
+/* Cute Japanese-friendly headings */
+h1, h2, h3, .heading, .box .title, .section-title {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 </style>
@@ -680,7 +715,7 @@ video {
 
 body{
     background:#f0f0f0;
-    font-family:'Baskervville', serif,"游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+    font-family: 'Poppins', 'Comic Neue', cursive, sans-serif;
 	color: #333;
 	font-size:1rem;
 	line-height:1.85;
@@ -742,11 +777,11 @@ h2{
 @media only screen and (max-width:768px) {
 .heading-block h1,
     h2{
-    font-size:4em;
-    line-height: 1.5;
+    font-size:3em;
+    line-height: 1.4;
     }
 .heading-block p{
-    font-size:1.5em;
+    font-size:1.2em;
     letter-spacing: 0.2em;
     }
 }
@@ -932,6 +967,14 @@ small{
     -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
 }
+
+/* Cute Japanese-friendly headings */
+h1, h2, h3, .heading, .box .title, .section-title {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
 </style>
 
 <!-- === Salmon Pink Theme Overrides === -->
@@ -946,6 +989,35 @@ small{
     --ink-weak:#6B5F5C;
     --white:#FFFFFF;
   }
+
+
+/* === Top-right PDF button (updated) === */
+#sns-icon{
+  position: fixed;
+  right: 16px;
+  top: 16px;
+  display: flex;
+  z-index: 20;
+}
+#sns-icon li{ margin: 0; }
+#sns-icon a{
+  display:inline-block;
+  padding: 10px 14px;
+  background: var(--salmon-50);
+  color: var(--white) !important;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  box-shadow: 0 6px 16px rgba(255,180,168,.45);
+  transition: transform .08s ease, box-shadow .2s ease;
+  border: 1px solid rgba(255,255,255,.4);
+}
+#sns-icon a:hover{ transform: translateY(-1px); }
+#sns-icon a:active{ transform: translateY(0); box-shadow: 0 3px 10px rgba(255,180,168,.35); }
+
+@media screen and (max-width:768px){
+  #sns-icon a{ padding: 10px 12px; font-size: .9rem; }
+}
 
   /* ベース */
   body{
@@ -1039,6 +1111,14 @@ small{
 
   /* コピーライトは読みやすいように白を維持 */
   small{ color: var(--white) !important; }
+
+/* Cute Japanese-friendly headings */
+h1, h2, h3, .heading, .box .title, .section-title {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
 </style>
 
 
@@ -1052,24 +1132,36 @@ small{
 	#box2 .box-area {
 		flex-direction: row-reverse;
 	}
+	@media screen and (max-width:768px) {
+		#box2 .box-area {
+		flex-direction: row;
+		}
+		#box2 .box-area{ flex-direction: column !important; }
+  		#box2 .image-strip{ margin: 0 !important; } /* 余白の偏りも解消 */
+	}
 	#box4 .box-area {
 		display: block;
 	}
 .image-strip{
-  display:flex;
+  /* Grow to fill the space next to .profile-area */
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items:center;
-  gap:12px;
+  gap:16px;
+  flex:1 1 auto;
+  min-width:0;
 }
 .image-strip img{
-  width: 180px;
-  max-width: 28vw;
-  height: auto;
-  border-radius: 12px;
+  width:100%;          /* fill the grid cell width */
+  height:auto;
+  max-width:none;      /* allow wide images */
+  border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,.18);
   opacity: 0;
   transform: translateX(30px);
   transition: transform .8s ease, opacity .8s ease;
 }
+.image-strip img{transition-delay: var(--delay, 0s);}
 .image-strip img.from-left{ transform: translateX(-30px); }
 .image-strip img.in{ opacity: 1; transform: translateX(0); }
 
@@ -1080,18 +1172,54 @@ small{
 @media screen and (max-width:768px){
   .box .box-area{ flex-direction: column; gap:16px; }
   .image-strip{
-    justify-content:center;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 6px;
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:12px;
+    overflow: visible;
+    padding-bottom: 0;
   }
   .image-strip img{
-    width: 46vw;
-    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    flex: initial;
   }
 }
+
+
+/* Cute Japanese-friendly headings */
+h1, h2, h3, .heading, .box .title, .section-title {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+
+/* === Mobile polish (added) === */
+@media screen and (max-width:768px){
+  .box{ padding: 24px; }
+  .profile-area{
+    max-width: none !important;
+    width: 100% !important;
+    padding: 24px !important;
+    margin: 0 !important;
+    border-radius: 16px;
+  }
+  .profile-area h2{
+    margin: 0 0 16px 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+  .profile-area h2 span{
+    font-size: 1.2rem !important;
+  }
+  .profile-area p{ margin: 0 0 16px 0 !important; }
+  .form-list{ padding: 0 8px; }
+}
+
 </style>
 
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -1108,9 +1236,7 @@ small{
     <p class="blurTrigger">新規就農セミナー</p>
     <!--/heading-block--></div>
     <ul id="sns-icon">
-    <li><a href="#"><img src="svg/ico_insta.svg" alt="Instagram"></a></li>
-    <li><a href="#"><img src="svg/ico_fb.svg" alt="Facebook"></a></li>
-    <li><a href="#"><img src="svg/ico_tw.svg" alt="Twitter"></a></li>
+    <li><a href="#">セミナー詳細 PDF</a></li>
     </ul>
 <!--/slider--></div>
 </header>
@@ -1443,6 +1569,34 @@ bar.animate(1.0, function () {//バーを描画する割合を指定します 1.
 })();
 </script>
 
-</body>
 
+<script>
+(function(){
+  // Helper: apply staggered animation when strip enters viewport
+  const strips = document.querySelectorAll('#box1 .image-strip, #box2 .image-strip, #box3 .image-strip, .image-strip');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const el = entry.target;
+      const imgs = el.querySelectorAll('img');
+      if (entry.isIntersecting) {
+        imgs.forEach((img, i) => {
+          // alternate direction
+          if (i % 2 === 0) img.classList.add('from-left');
+          img.style.setProperty('--delay', (i * 120) + 'ms');
+          // next frame to ensure delay is applied before adding .in
+          requestAnimationFrame(() => {
+            img.classList.add('in');
+          });
+        });
+        // Unobserve after first reveal
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  strips.forEach(strip => io.observe(strip));
+})();
+</script>
+
+</body>
 </html>
