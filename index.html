@@ -763,7 +763,7 @@ h2{
 }
 
 #sns-icon li{
-     margin:0 10px;   
+     margin:0 10px!important;   
 }
 
 #sns-icon a{
@@ -796,7 +796,12 @@ h2{
 @media screen and (max-width:768px) { 
 .profile-area{
      margin:0;
-    } 
+    }
+#sns-icon{
+    position: fixed;
+    bottom:8px!important;
+    display: flex;
+}
 }
 
 
@@ -953,7 +958,6 @@ h1, h2, h3, .heading, .box .title, .section-title {
 #sns-icon{
   position: fixed;
   right: 16px;
-  top: 16px;
   display: flex;
   z-index: 20;
 }
@@ -1189,6 +1193,26 @@ h1, h2, h3, .heading, .box .title, .section-title {
     }
 }
 </style>
+	
+<style>
+/* === My Maps embed (larger) === */
+
+.map-wrap {
+    height: 60vh;
+    overflow: hidden;
+}
+.map-wrap iframe {
+    width: 680px;
+    height: calc(100% + 56px);
+    margin-top: -56px;
+}
+	
+	@media screen and (max-width:768px) {
+		.map-wrap iframe {
+			width: 90%;
+		}
+	}
+</style>
 
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -1206,7 +1230,8 @@ h1, h2, h3, .heading, .box .title, .section-title {
     <p class="blurTrigger">新規就農セミナー</p>
     </div>
     <ul id="sns-icon">
-    <li><a href="./img/shibetsu2025.pdf">セミナー詳細 PDF</a></li>
+	<li><a href="./img/shibetsu-paper2025.pdf">チラシ PDF</a></li>
+    <li><a href="./img/shibetsu2025.pdf">スケジュール PDF</a></li>
     </ul>
 </div>
 </header>
@@ -1267,8 +1292,11 @@ h1, h2, h3, .heading, .box .title, .section-title {
     
     <section id="box4" class="box" data-section-name="Contact">
         <div class="box-area">
+		<div class="map-wrap blurTrigger">
+  		<iframe src="https://www.google.com/maps/d/embed?mid=11aqmL6Bd99IvME6cUbSl-H9X__vBbCM&hl=ja&ehbc=2E312F" width="640" height="380"></iframe>
+		</div>
 		<h2 class="eachTextAnime">Contact</h2>
-        <a href="#form" class="gradient4 btn-view2 blurTrigger">お問合わせ</a>
+        <a href="mailto:einou04@shibetsu.ja-hokkaido.gr.jp" class="gradient4 btn-view2 blurTrigger">お問合わせ</a>
         </div>
 	</section>
 	</main>
