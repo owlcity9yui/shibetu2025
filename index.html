@@ -1107,14 +1107,14 @@ h1, h2, h3, .heading, .box .title, .section-title {
 .image-strip{
   /* Grow to fill the space next to .profile-area */
   display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items:center;
   gap:16px;
-  flex:1 1 auto;
+  flex:1 1;
   min-width:0;
 }
 .image-strip img{
-  width:100%;          /* fill the grid cell width */
+  width:70%;          /* fill the grid cell width */
   height:auto;
   max-width:none;      /* allow wide images */
   border-radius: 16px;
@@ -1146,6 +1146,8 @@ h1, h2, h3, .heading, .box .title, .section-title {
     flex: initial;
   }
 }
+	
+
 
 
 /* Cute Japanese-friendly headings */
@@ -1247,9 +1249,10 @@ h1, h2, h3, .heading, .box .title, .section-title {
             </dl>
             </div>
 <div class="image-strip">
-  <img class="from-left" src="./img/main01.jpeg" alt="dummy 1">
-  <img src="./img/main02.jpeg" alt="dummy 2">
-  <img src="./img/main03.jpeg" alt="dummy 3">
+  <img class="from-left" src="./img/main01.jpeg" alt="">
+  <img src="./img/main02.jpeg" alt="">
+  <img src="./img/main03.jpeg" alt="">
+  <img src="./img/main10.jpg" alt="">
 </div>
 
         </div>
@@ -1264,9 +1267,10 @@ h1, h2, h3, .heading, .box .title, .section-title {
 			<p>旧笹木牧場は牛舎内の傷みの少なさや清潔さから、これまでとても丁寧に、そして大切に使われてきたことが伺えます。効率的な給餌システム、牛舎と牧草地の移動など、日々の作業が無駄なくスムーズに行えるよう作業の導線が確立されていました。<br>あなたならどんな就農計画をたてますか？</p>
             </div>
 <div class="image-strip">
-  <img src="./img/main04.JPG" alt="dummy 1">
-  <img class="from-left" src="./img/main05.JPG" alt="dummy 2">
-  <img src="./img/main06.JPG" alt="dummy 3">
+  <img src="./img/main04.JPG" alt="">
+  <img class="from-left" src="./img/main05.JPG" alt="">
+  <img src="./img/main06.JPG" alt="">
+  <img src="./img/main11.jpg" alt="">
 </div>
 
         </div>
@@ -1282,9 +1286,10 @@ h1, h2, h3, .heading, .box .title, .section-title {
             </dl>
             </div>
 <div class="image-strip">
-  <img class="from-left" src="./img/main07.JPG" alt="dummy 1">
-  <img src="./img/main08.jpeg" alt="dummy 2">
-  <img src="./img/main09.JPG" alt="dummy 3">
+  <img class="from-left" src="./img/main07.JPG" alt="">
+  <img src="./img/main08.jpeg" alt="">
+  <img src="./img/main09.JPG" alt="">
+  <img src="./img/main12.jpg" alt="">
 </div>
 
         </div>
@@ -1296,7 +1301,7 @@ h1, h2, h3, .heading, .box .title, .section-title {
   		<iframe src="https://www.google.com/maps/d/embed?mid=11aqmL6Bd99IvME6cUbSl-H9X__vBbCM&hl=ja&ehbc=2E312F" width="640" height="380"></iframe>
 		</div>
 		<h2 class="eachTextAnime">Contact</h2>
-        <a href="mailto:einou04@shibetsu.ja-hokkaido.gr.jp" class="gradient4 btn-view2 blurTrigger">お問合わせ</a>
+        <a href="mailto:einou04@shibetsu.ja-hokkaido.gr.jp" class="gradient4 blurTrigger">お問合わせ</a>
         </div>
 	</section>
 	</main>
@@ -1345,42 +1350,6 @@ $('#slider').vegas({
 		animation: 'kenburns',//スライドアニメーションの種類。http://vegas.jaysalvat.com/documentation/transitions/参照。kenburns、kenburnsUp、kenburnsDown、kenburnsRight、kenburnsLeft、kenburnsUpLeft、kenburnsUpRight、kenburnsDownLeft、kenburnsDownRight、randomが設定可能。
 		slides: responsiveImage,//画像設定を読む
 	});
-
-
-/*===========================================================*/
-/*機能編 9-6-3 リンクをクリックすると、背景が暗くなり動画や画像やテキストを表示*/
-/*===========================================================*/
-
-//テキストを含む一般的なモーダル
-$(".btn-view2").modaal({
-	overlay_close:true,//モーダル背景クリック時に閉じるか
-	before_open:function(){// モーダルが開く前に行う動作
-		$('html').css('overflow-y','hidden');/*縦スクロールバーを出さない*/
-        $.scrollify.disable();//scrollfyのプラグインを無効に
-	},
-	after_close:function(){// モーダルが閉じた後に行う動作
-		$('html').css('overflow-y','scroll');/*縦スクロールバーを出す*/
-        $.scrollify.enable();//scrollfyのプラグインを有効に
-	}
-});
-
-
-/*===========================================================*/
-/*機能編 6-2-6 サムネイルをクリックするとグループ化された画像一覧を表示する*/
-/*===========================================================*/
-
-//画像をクリックしたら現れる画面の設定	
-$(".btn-view").modaal({
-	fullscreen:'true', //フルスクリーンモードにする
-	before_open:function(){// モーダルが開く前に行う動作
-		$('html').css('overflow-y','hidden');/*縦スクロールバーを出さない*/
-        $.scrollify.disable();//scrollfyのプラグインを無効に
-	},
-	after_close:function(){// モーダルが閉じた後に行う動作
-		$('html').css('overflow-y','scroll');/*縦スクロールバーを出す*/
-        $.scrollify.enable();//scrollfyのプラグインを有効に
-	}
-});
 
 
 /*===========================================================*/
